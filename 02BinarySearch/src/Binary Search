@@ -1,0 +1,7 @@
+对不减数组arr的区间[lo,hi-1]进行查找，目标值为key
+1、若找到
+    a.返回 值等于key的index区间的最小index
+    b.返回 值等于key的index区间的最大index
+2、若找不到
+    a.返回 值大于key的最小的index
+    b.返回 值小于key的最大的index
