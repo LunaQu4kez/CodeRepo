@@ -17,13 +17,12 @@ public class BinarySearch {
         }
     }
 
-    // 标准二分查找
-    // key：待寻找的值  lo：左边界（包含）  hi：右边界（不包含）
+    // 标准二分查找key  查找范围[lo,hi)
     public static int binarySearch(int[] arr, int key, int lo, int hi) {
         int le = lo;
         int ri = hi - 1;
         while (le <= ri) {
-            int mid = (le + ri) >> 1; // 防止溢出
+            int mid = (le + ri) >> 1;
             if (arr[mid] == key) {
                 return mid;
             } else if (arr[mid] < key) {
@@ -32,27 +31,29 @@ public class BinarySearch {
                 ri = mid - 1;
             }
         }
-        return -1; // 若没有，则返回-1
+        return -1;
     }
 
+    // 查找范围[lo, hi)
     // 若找到了key，返回key的下标最小的index
     // 若没找到，返回大于key的最小index
     public static int binarySearchLeBd(int[] arr, int key, int lo, int hi) {
         int le = lo;
-        int ri = hi; // 注意
-        while (le < ri) { // 注意
+        int ri = hi;
+        while (le < ri) {
             int mid = (le + ri) >> 1;
             if (arr[mid] == key) {
                 ri = mid;
             } else if (arr[mid] < key) {
                 le = mid + 1;
             } else {
-                ri = mid; // 注意
+                ri = mid;
             }
         }
         return le;
     }
 
+    // 查找范围[lo, hi)
     // 若找到了key，返回key的下标最大的index
     // 若没找到，返回小于key的最大index
     public static int binarySearchRiBd(int[] arr, int key, int lo, int hi) {
@@ -61,13 +62,13 @@ public class BinarySearch {
         while (le < ri) {
             int mid = (le + ri) >> 1;
             if (arr[mid] == key) {
-                le = mid + 1; // 注意
+                le = mid + 1;
             } else if (arr[mid] < key) {
                 le = mid + 1;
             } else if (arr[mid] > key) {
                 ri = mid;
             }
         }
-        return le - 1; // 注意
+        return le - 1;
     }
 }
